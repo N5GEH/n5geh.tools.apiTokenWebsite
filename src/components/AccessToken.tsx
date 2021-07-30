@@ -3,6 +3,7 @@ import { Result, Button, Card, Popover } from "antd";
 import "antd/dist/antd.css";
 import { AiOutlineCopy } from "react-icons/ai";
 import useInterval from "use-interval";
+import { ResultStatusType } from "antd/lib/result";
 //import { DateTime } from 'luxon';
 
 //const isoTime = DateTime.now().setZone('Europe/Berlin').toISO()
@@ -12,6 +13,14 @@ interface UserInfo {
   expiresIn: number;
   tokenType: string;
   expirationDate: string;
+}
+
+function redirectToAuth() {
+  if (NODE_ENV === "development") {
+    window.location.href = "http://localhost:4000/auth/login";
+  } else {
+    window.location.replace("/auth/login");
+  }
 }
 
 export function AccessToken() {
@@ -25,8 +34,6 @@ export function AccessToken() {
     setTimeUntilExpiration(
       (Date.parse(userInfo.expirationDate) - Date.now()) / 1000
     );
-    // Your custom logic here
-    //setCount(count + 1)
   }, 50);
 
   useEffect(() => {
@@ -34,12 +41,7 @@ export function AccessToken() {
       const res = await fetch("/userinfo");
 
       if (res.status !== 200) {
-        if (NODE_ENV === "development") {
-          window.location.href = "http://localhost:4000/auth/login";
-        } else {
-          window.location.replace("/auth/login");
-        }
-        //window.location.replace('/auth/login')
+        redirectToAuth();
         return;
       }
       const { token_type, access_token, expires_in, expiration_date } =
@@ -54,7 +56,7 @@ export function AccessToken() {
   }, []);
 
   let subTitle = "";
-  let resultStatus = "warning";
+  let resultStatus: ResultStatusType = "warning";
 
   if (timeUntilExpiration == null) {
     subTitle = "";
@@ -93,7 +95,7 @@ export function AccessToken() {
       }}
     >
       <Result
-        status={resultStatus as "warning"}
+        status={resultStatus}
         title="Access Token successfully retrieved!"
         subTitle={subTitle}
         extra={[
@@ -121,11 +123,7 @@ export function AccessToken() {
               View
             </Button>
           </Popover>,
-          <Button
-            shape="round"
-            key="refresh"
-            href="http://localhost:4000/auth/login"
-          >
+          <Button shape="round" key="refresh" onClick={() => redirectToAuth()}>
             Refresh
           </Button>,
         ]}
