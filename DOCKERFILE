@@ -1,6 +1,6 @@
 FROM node:12.18.2 AS ui-build
 WORKDIR /usr/src/app
-COPY src/ ./frontend/
+COPY frontend/ ./frontend/
 RUN cd frontend && npm install && npm run-script build
 
 FROM node:12.18.2 AS server-build
