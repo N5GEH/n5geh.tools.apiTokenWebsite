@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ConfigProvider, theme } from 'antd';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ConfigProvider theme={{
+      algorithm: theme.darkAlgorithm
+    }}>
+      <App />
+    </ConfigProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

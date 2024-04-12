@@ -1,6 +1,6 @@
 import React, { useEffect, useState, ChangeEvent } from "react";
 import { Result, Button, Card, Popover } from "antd";
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 import { AiOutlineCopy } from "react-icons/ai";
 import useInterval from "use-interval";
 import { ResultStatusType } from "antd/lib/result";
