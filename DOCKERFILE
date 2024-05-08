@@ -4,6 +4,7 @@ COPY frontend/ ./frontend/
 RUN cd frontend && npm install && npm run-script build
 
 FROM node:21.7.3-alpine3.19 AS server-build
+RUN apk add git
 WORKDIR /root/
 COPY --from=ui-build /usr/src/app/frontend/build ./frontend/build
 COPY server/package*.json ./backend/

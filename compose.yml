@@ -1,0 +1,27 @@
+services:
+    
+  token-ui:
+    image: docker-hub.gewv.iet.mw.tu-dresden.de/n5geh/get-token-ui:${TAG}
+    networks:
+      - token_network
+    #ports:
+    #  - "4000:4000"
+    environment:
+      - CLIENT_ID=
+      - CLIENT_SECRET=
+      - HOST=https://${HOST}/
+      - ISSUER_BASE_URL=
+      - NODE_ENV=production
+      - SECRET=
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.token-ui.rule=Host(`${HOST}`)"
+        - "traefik.http.routers.token-ui.entrypoints=http"
+        - "traefik.http.services.token-ui.loadbalancer.server.port=4000"
+
+
+networks:
+  token_network:
+    external: true
+
