@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent } from "react";
+import React, { useEffect, useState } from "react";
 import { Result, Button, Card, Popover } from "antd";
 //import "antd/dist/antd.css";
 import { AiOutlineCopy } from "react-icons/ai";
@@ -8,6 +8,7 @@ import { ResultStatusType } from "antd/lib/result";
 
 //const isoTime = DateTime.now().setZone('Europe/Berlin').toISO()
 const NODE_ENV = process.env.NODE_ENV;
+const CopyIcon = AiOutlineCopy as unknown as React.FC;
 interface UserInfo {
   accessToken: string;
   expiresIn: number;
@@ -101,7 +102,7 @@ export function AccessToken() {
         extra={[
           <Button
             type="primary"
-            icon={<AiOutlineCopy />}
+            icon={<CopyIcon />}
             shape="round"
             size="large"
             key="copy"

@@ -11,10 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
     "express-openid-connect": "github:auth0/express-openid-connect",
-    "luxon": "^3.4.4",
+    "luxon": "^3.6.1",
     "memorystore": "^1.6.7"
   }
 }

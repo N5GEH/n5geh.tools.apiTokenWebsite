@@ -6,7 +6,7 @@ This is an application designed to retrieve and display access tokens from an OI
 
 **Deployment via Docker:**
 
-- Build the image using the provided `Dockerfile`. Images are available at [GEWV-Dockerhub](https://docker-hub.gewv.iet.mw.tu-dresden.de/harbor/projects/5/repositories/get-token-ui).
+- Build the image using the provided `Dockerfile`. Images are available at [ghcr.io/gewv-tu-dresden/n5geh.token_ui](https://github.com/gewv-tu-dresden/n5geh.apiTokenWebsite/pkgs/container/n5geh.token_ui).
 - Utilize Docker Compose with the provided [compose.yml](compose.yml) file and configure the following environment variables:
 
     ```yaml
