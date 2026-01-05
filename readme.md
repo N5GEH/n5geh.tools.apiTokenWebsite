@@ -2,7 +2,13 @@
 
 This is an application designed to retrieve and display access tokens from an OIDC provider such as Keycloak.
 
-The code is published as a result of the N5GEH in another repository: https://github.com/N5GEH/n5geh.tools.apiTokenWebsite
+
+## Usage
+The user can log in via IdP (e.g. via Keycloak) and retrieve access tokens for interacting with the N5GEH platform. These tokens are necessary if the APIs are protected as described in [n5geh.tutorials.api-protection](https://github.com/N5GEH/n5geh.tutorials.api-protection).
+
+This is an easy way to obtain a token for development purposes. The user interface looks like this:
+
+![Access Token Screen](doc/access_token_screen.png)
 
 ## Deployment
 
@@ -20,3 +26,7 @@ The code is published as a result of the N5GEH in another repository: https://gi
     ```
 
 - The UI is accessible at port 4000.
+
+## License
+
+The Token Website is licensed under the BSD 3-Clause License [![BSD 3-Clause License](https://img.shields.io/badge/License-BSD--3--Clause-blue)](LICENSE).
