@@ -14,7 +14,7 @@ This is an easy way to obtain a token for development purposes. The user interfa
 
 **Deployment via Docker:**
 
-- Build the image using the provided `Dockerfile`. Images are available at [ghcr.io/gewv-tu-dresden/n5geh.token_ui](https://github.com/gewv-tu-dresden/n5geh.apiTokenWebsite/pkgs/container/n5geh.token_ui).
+- Build the image using the provided `Dockerfile`. Images are available at [ghcr.io/n5geh/n5geh.tools.apitokenwebsite](https://github.com/N5GEH/n5geh.tools.apiTokenWebsite/pkgs/container/n5geh.tools.apitokenwebsite).
 - Utilize Docker Compose with the provided [compose.yml](compose.yml) file and configure the following environment variables:
 
     ```yaml

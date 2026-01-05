@@ -4,6 +4,7 @@ COPY frontend/ ./
 RUN npm install && npm run build
 
 FROM node:23.11.1-alpine AS server-build
+LABEL org.opencontainers.image.source="https://github.com/N5GEH/n5geh.tools.apiTokenWebsite"
 RUN apk add git
 WORKDIR /root/
 COPY --from=ui-build /usr/src/app/frontend/build ./frontend/build
